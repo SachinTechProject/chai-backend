@@ -6,3 +6,11 @@ dotenv.config({
 })
 
 connectDB()
+.then(()=>{
+    app.listen(process.env.PORT || 2000, () => {
+        console.log(`Server is running at post : ${process.env.PORT}`)
+    })
+})
+.catch((err)=>{
+    console.log("Mongod db conntetion faild !!! ", err)
+})
